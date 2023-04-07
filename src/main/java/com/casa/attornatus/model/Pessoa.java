@@ -15,6 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,6 +32,7 @@ public class Pessoa implements Serializable {
 	private Long id;
 
 	@NotEmpty(message = "Nome está vazio.")
+	@Size(min = 4, message = "Escreva um nome válido.")
 	private String nome;
 
 	@JsonFormat(pattern = "dd/MM/yyyy")
