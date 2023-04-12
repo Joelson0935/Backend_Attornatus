@@ -1,5 +1,7 @@
 package com.casa.attornatus.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.casa.attornatus.model.Endereco;
 import com.casa.attornatus.service.EnderecoService;
-
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/endereco")

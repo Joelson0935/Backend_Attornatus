@@ -2,6 +2,8 @@ package com.casa.attornatus.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.casa.attornatus.model.Pessoa;
 import com.casa.attornatus.model.dto.PessoaDto;
 import com.casa.attornatus.service.PessoaService;
-
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/pessoa")

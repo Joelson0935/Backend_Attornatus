@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -24,6 +25,13 @@ public class HandleExceptionsClass {
 		for (FieldError field : e.getBindingResult().getFieldErrors()) {
 			erro.toCampos(field.getField(), field.getDefaultMessage());
 		}
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
+	}
+
+	@ExceptionHandler(HttpMessageNotReadableException.class)
+	public ResponseEntity<Erro> notReadble(HttpMessageNotReadableException e) {
+		Erro erro = new Erro("digite a data no seguinte padrão: dd/MM/yyyy", HttpStatus.BAD_REQUEST.value(),
+				LocalDate.now());
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
 	}
 
